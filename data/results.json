@@ -1,0 +1,4 @@
+[
+  { "model": "Baseline-X", "team": "Org A", "val_f1": 0.42, "val_mse": 0.123, "submitted": "2025-09-01" },
+  { "model": "GestureNet", "team": "Lab B", "val_f1": 0.55, "val_mse": 0.099, "submitted": "2025-09-02" }
+]
