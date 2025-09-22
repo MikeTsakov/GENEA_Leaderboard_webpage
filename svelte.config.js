@@ -1,8 +1,7 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-const dev = process.argv.includes('dev');
-const base = dev ? '' : '/GENEA_Leaderboard_webpage'; // 👈 replace with your repo name
+const isDev = process.env.NODE_ENV === 'development';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -22,7 +21,7 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			base
+			base: isDev ? '' : '/GENEA_Leaderboard_webpage'
 		}
 	}
 };
