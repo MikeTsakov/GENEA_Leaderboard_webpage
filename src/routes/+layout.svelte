@@ -4,16 +4,16 @@
   <div class="nav-item dropdown">
     <button class="dropbtn">Datasets ▼</button>
     <div class="dropdown-content">
-      <a href="#">Talking with Hands</a>
-      <a href="#">SMPL-X</a>
-      <a href="#">Nymeria</a>
+      <a href="https://github.com/facebookresearch/TalkingWithHands32M" target="_blank">Talking with Hands</a>
+      <a href="https://smpl-x.is.tue.mpg.de/index.html" target="_blank">SMPL-X</a>
+      <a href="https://www.projectaria.com/datasets/nymeria/" target="_blank">Nymeria</a>
     </div>
   </div>
   <div class="nav-item dropdown">
     <button class="dropbtn">Visualizers ▼</button>
     <div class="dropdown-content">
-      <a href="#">BVH View</a>
-      <a href="#">Blender</a>
+      <a href="#" target="_blank">BVH View</a>
+      <a href="#" target="_blank">Blender</a>
     </div>
   </div>
   <button class="nav-item">Submit</button>
