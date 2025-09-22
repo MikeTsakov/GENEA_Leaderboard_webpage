@@ -1,0 +1,175 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+
+main { 
+    padding: 24px; 
+    font-family: system-ui, sans-serif; 
+}
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #575297;
+    margin: 0;
+    padding: 40px;
+}
+input { 
+    margin-bottom: 12px; 
+    padding: 8px; 
+    width: 280px; 
+}
+.leaderboard {
+    max-width: 1500px;
+    margin: auto;
+    background: #6c7fb8;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    padding: 24px;
+}
+h1 {
+    text-align: center;
+    text-size-adjust: auto;
+    font-size: 5em;
+    color: #fff;
+    margin-bottom: 24px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+th {
+    background: #2a2d3a;
+    color: #b5b8c5;
+    font-weight: 600;
+}
+tr {
+    border-bottom: 1px solid #2a2d3a;
+}
+tr:hover { 
+    background: #f9f9f9; 
+}
+tr:last-child {
+    border-bottom: none;
+}
+td.rank {
+    font-weight: bold;
+    color: #ffffff;
+}
+td.model {
+    font-weight: bold;
+    color: #ffffff;
+}
+td.team {
+    font-weight: bold;
+    color: #ffffff;
+}
+td.name a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+td.name a:hover {
+    color: #00aaff;
+    text-decoration: underline;
+}
+td.score {
+    color: #00ff99;
+    font-weight: 500;
+}
+td.date {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* Align top menu */
+menu {
+    text-align: center;
+    text-size-adjust: auto;
+    font-size: 5em;
+    color: #fff;
+    margin-bottom: 24px;
+}
+.navbar {
+    display: flex;
+    justify-content: center;  /* center the menu */
+    gap: 16px;                /* spacing between items */
+    background: #23262f;      /* dark box around menu */
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 24px;      /* space below navbar */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.nav-item {
+    background: #2a2d3a;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    /* border-radius: 6px; */
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+    /* transition: background 0.2s, transform 0.1s; */
+}
+
+.nav-item:hover {
+    background: #00aaff;
+    transform: translateY(-2px);
+}
+
+/* Dropdown menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: #2a2d3a;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;      /* ensures padding applies fully */
+    width: 100%;                /* fills dropdown container */
+}
+
+.dropdown:hover .dropbtn {
+    background: #00aaff;
+    color: #fff;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    background: #2a2d3a;
+    /* border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25); */
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    display: block;
+    color: #fff;
+    padding: 10px 14px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background: #00aaff;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
