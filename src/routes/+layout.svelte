@@ -12,8 +12,9 @@
   <div class="nav-item dropdown">
     <button class="dropbtn">Visualizers ▼</button>
     <div class="dropdown-content">
-      <a href="#" target="_blank">BVH View</a>
-      <a href="#" target="_blank">Blender</a>
+      <!-- <button onclick={() => window.open('/visualizer/index.html', '_blank')}>BVH View</button> -->
+      <a href="{resolve('/BVHView/bvhview.html' as any)}" target="_blank">BVH View</a>
+      <a href="https://github.com/TeoNikolov/genea_visualizer/tree/dev-2025" target="_blank">Blender</a>
     </div>
   </div>
   <button class="nav-item">Submit</button>
@@ -21,8 +22,9 @@
 
 <script lang="ts">
   import '../app.css';
+  import {resolve} from '$app/paths';
   import favicon from '$lib/assets/favicon.svg';
-  
+
   let { children } = $props();
 </script>
 
