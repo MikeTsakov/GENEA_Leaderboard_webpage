@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { resolve } from '$app/paths';
   import { goto } from '$app/navigation';
   import LeaderboardTable from '$lib/components/LeaderboardTable.svelte';
   import { PUBLIC_SUPABASE_ANON_KEY, type LeaderboardRow } from '$lib/types';
@@ -26,6 +27,10 @@
       console.error('Failed to fetch leaderboard:', err);
     }
   });
+
+  function goToLeaderboard() {
+    goto(resolve('/leaderboard'));
+  }
 </script>
 
 <section class="home">
@@ -37,7 +42,7 @@
   <main class="leaderboard">
     <h2>Leaderboard</h2>
     <LeaderboardTable rows={rows} columns={columnsToShow} />
-    <button on:click={() => goto('${base}/leaderboard')}>
+    <button on:click={goToLeaderboard}>
       See full leaderboard →
     </button>
   </main>
