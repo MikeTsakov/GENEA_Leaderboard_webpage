@@ -37,7 +37,7 @@
   <main class="leaderboard">
     <h2>Leaderboard</h2>
     <LeaderboardTable rows={rows} columns={columnsToShow} />
-    <button on:click={() => goto('/leaderboard')}>
+    <button on:click={() => goto('${base}/leaderboard')}>
       See full leaderboard →
     </button>
   </main>
