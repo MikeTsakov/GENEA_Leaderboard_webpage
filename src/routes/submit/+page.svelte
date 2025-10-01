@@ -6,7 +6,13 @@
   let file: File | null = null;
   function onFile(e) { file = e.target.files?.[0] ?? null; }
 
-  async function submitForm() {
+  let loading = false;
+  let message = "";
+
+  async function submitForm(event: Event) {
+    event.preventDefault();
+    loading = true;
+
     try {
       const payload = {
         team,
@@ -28,8 +34,12 @@
       if (!res.ok) throw new Error(`HTTP error ${res.status}`);
       const json = await res.json();
       console.log('Submit response:', json);
+      message = "Submission successful!";
     } catch (err) {
       console.error('Failed to submit:', err);
+      message = "Submission failed. Try again.";
+    } finally {
+      loading = false;
     }
   }
 </script>
@@ -39,5 +49,12 @@
   <label>Model <input name="model" bind:value={model} /></label>
   <label>PDF <input type="file" name="file" accept="application/pdf" on:change={onFile} /></label>
 
-  <button type="submit">Submit</button>
-</form> 
+  <button type="submit" disabled={loading}>
+    {#if loading}Submitting...{/if}
+    {#if !loading}Submit{/if}
+  </button>
+</form>
+
+{#if message}
+  <p class="feedback">{message}</p>
+{/if}
