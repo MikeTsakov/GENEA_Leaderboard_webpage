@@ -1,20 +1,12 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { goto } from '$app/navigation';
   import LeaderboardTable from '$lib/components/LeaderboardTable.svelte';
   import { PUBLIC_SUPABASE_ANON_KEY, type LeaderboardRow } from '$lib/types';
 
   let rows: LeaderboardRow[] = [];
-  let topRows: LeaderboardRow[] = [];
 
   const columnsToShow: (keyof LeaderboardRow)[] = ['id', 'model', 'team', 'val_f1'];
-
-  // onMount(async () => {
-  //   const res = await fetch('./data/results.json');
-  //   rows = await res.json();
-
-  //   // show only top 5 for homepage
-  //   topRows = rows.slice(0, 5);
-  // });
 
   onMount(async () => {
     try {
@@ -45,11 +37,8 @@
   <main class="leaderboard">
     <h2>Leaderboard</h2>
     <LeaderboardTable rows={rows} columns={columnsToShow} />
-    <p><a href="/leaderboard">See full leaderboard →</a></p>
+    <button on:click={() => goto('/leaderboard')}>
+      See full leaderboard →
+    </button>
   </main>
-  <!-- <ul>
-    {#each rows as row}
-      <li>{row.model} ({row.team}) - {row.val_f1}</li>
-    {/each}
-  </ul> -->
 </section>
