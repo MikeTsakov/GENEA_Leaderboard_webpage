@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import LeaderboardTable from '$lib/components/LeaderboardTable.svelte';
-  import { SUPABASE_ANON_KEY, type LeaderboardRow } from '$lib/types';
+  import { PUBLIC_SUPABASE_ANON_KEY, type LeaderboardRow } from '$lib/types';
 
   let rows: LeaderboardRow[] = [];
 
@@ -11,7 +11,7 @@
         'https://ctwfyjhvheylawtxrvdq.supabase.co/functions/v1/get-leaderboard',
         {
           headers: {
-            Authorization: `Bearer ${SUPABASE_ANON_KEY}`
+            Authorization: `Bearer ${PUBLIC_SUPABASE_ANON_KEY}`
           }
         }
       );

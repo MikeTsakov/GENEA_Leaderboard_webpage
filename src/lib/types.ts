@@ -7,5 +7,5 @@ export interface LeaderboardRow {
   submitted?: string;
 }
 
-export const SUPABASE_URL = "https://ctwfyjhvheylawtxrvdq.supabase.co";
-export const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0d2Z5amh2aGV5bGF3dHhydmRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkxNzg3NzQsImV4cCI6MjA3NDc1NDc3NH0.6nWRea_ELVrVXPuu4sRDdgF5tH-YD0h7c105x7zzCJg";
+export const PUBLIC_SUPABASE_URL = "https://ctwfyjhvheylawtxrvdq.supabase.co";
+export const PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0d2Z5amh2aGV5bGF3dHhydmRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkxNzg3NzQsImV4cCI6MjA3NDc1NDc3NH0.6nWRea_ELVrVXPuu4sRDdgF5tH-YD0h7c105x7zzCJg";
