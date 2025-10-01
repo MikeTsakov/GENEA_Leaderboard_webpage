@@ -1,4 +1,4 @@
-import { supabase } from '$lib/supdabaseClient';
+import { supabase } from '$lib/supabaseClient';
 
 export async function GET() {
   const { data, error } = await supabase.from('submissions').select('*').order('created_at', { ascending: false });
