@@ -1,13 +1,12 @@
 <script lang="ts">
-  import { PUBLIC_SUPABASE_ANON_KEY, type LeaderboardRow } from '$lib/types';
+  import { PUBLIC_SUPABASE_ANON_KEY } from '$lib/types';
   
-  let rows: LeaderboardRow[] = [];
   let team = "";
   let model = "";
   let file: File | null = null;
   function onFile(e) { file = e.target.files?.[0] ?? null; }
 
-  async function submitForm(e: Event) {
+  async function submitForm() {
     try {
       const payload = {
         team,
@@ -29,12 +28,6 @@
       if (!res.ok) throw new Error(`HTTP error ${res.status}`);
       const json = await res.json();
       console.log('Submit response:', json);
-
-      // optionally refresh leaderboard after submit
-      rows = [...rows, ...json.data];
-      team = "";
-      model = "";
-      file = null;
     } catch (err) {
       console.error('Failed to submit:', err);
     }
