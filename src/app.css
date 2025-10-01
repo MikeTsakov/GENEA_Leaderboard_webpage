@@ -33,12 +33,27 @@ h1 {
     color: #fff;
     margin-bottom: 24px;
 }
+h2 {
+    text-align: center;
+    text-size-adjust: auto;
+    font-size: 3em;
+    color: #fff;
+    margin-bottom: 24px;
+}
 table {
     width: 100%;
     border-collapse: collapse;
 }
+.tableheader {
+    font-size: 1.4em;
+}
+.sort-arrow {
+    display: inline-block;
+    width: 8em;
+    text-align: center;
+}
 th, td {
-    padding: 12px 8px;
+    padding: 6px 4px;
     border-bottom: 1px solid #ddd;
     text-align: center;
 }
@@ -46,47 +61,36 @@ th {
     background: #2a2d3a;
     color: #b5b8c5;
     font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+th span {
+    margin-left: 6px;
 }
 tr {
     border-bottom: 1px solid #2a2d3a;
 }
-tr:hover { 
-    background: #f9f9f9; 
+tbody tr:nth-child(odd) {
+    background-color: #263b7a;
+}
+tbody tr:nth-child(even) {
+    background-color: #39519e;
+}
+tbody tr:hover { 
+    background: #ffffff46; 
 }
 tr:last-child {
     border-bottom: none;
 }
-td.rank {
+td.name {
     font-weight: bold;
     color: #ffffff;
-}
-td.model {
-    font-weight: bold;
-    color: #ffffff;
-}
-td.team {
-    font-weight: bold;
-    color: #ffffff;
-}
-td.name a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-td.name a:hover {
-    color: #00aaff;
-    text-decoration: underline;
 }
 td.score {
     color: #00ff99;
     font-weight: 500;
 }
-td.date {
-    color: #ffffff;
-    font-weight: 500;
-}
 
-/* Align top menu */
 menu {
     text-align: center;
     text-size-adjust: auto;
@@ -96,25 +100,26 @@ menu {
 }
 .navbar {
     display: flex;
-    justify-content: center;  /* center the menu */
-    gap: 16px;                /* spacing between items */
-    background: #23262f;      /* dark box around menu */
+    justify-content: center;
+    gap: 16px;
+    background: #23262f;
     padding: 12px 20px;
     border-radius: 8px;
-    margin-bottom: 24px;      /* space below navbar */
+    margin-bottom: 24px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 
-.nav-item {
+.nav-item {    
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #2a2d3a;
     color: #fff;
     border: none;
     padding: 10px 18px;
-    /* border-radius: 6px; */
     cursor: pointer;
     font-size: 20px;
     font-weight: 500;
-    /* transition: background 0.2s, transform 0.1s; */
 }
 
 .nav-item:hover {
@@ -122,7 +127,6 @@ menu {
     transform: translateY(-2px);
 }
 
-/* Dropdown menu */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -135,8 +139,8 @@ menu {
     padding: 10px 18px;
     border-radius: 6px;
     cursor: pointer;
-    display: inline-block;      /* ensures padding applies fully */
-    width: 100%;                /* fills dropdown container */
+    display: inline-block;
+    width: 100%;
 }
 
 .dropdown:hover .dropbtn {
@@ -151,8 +155,6 @@ menu {
     top: 100%;
     left: 0;
     background: #2a2d3a;
-    /* border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.25); */
     min-width: 160px;
     z-index: 1;
 }
@@ -169,7 +171,6 @@ menu {
     background: #00aaff;
 }
 
-/* Show dropdown on hover */
 .dropdown:hover .dropdown-content {
     display: block;
 }

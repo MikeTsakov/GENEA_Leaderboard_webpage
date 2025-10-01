@@ -1,50 +1,55 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import LeaderboardTable from '$lib/components/LeaderboardTable.svelte';
+  import { SUPABASE_ANON_KEY, type LeaderboardRow } from '$lib/types';
 
-  interface LeaderboardRow {
-    model: string
-    team: string
-    val_f1: number
-    val_mse: number
-    submitted: Date
-  }
+  let rows: LeaderboardRow[] = [];
+  let topRows: LeaderboardRow[] = [];
 
-  let rows: LeaderboardRow[] = []
-  let q = '';
+  const columnsToShow: (keyof LeaderboardRow)[] = ['id', 'model', 'team', 'val_f1'];
+
+  // onMount(async () => {
+  //   const res = await fetch('./data/results.json');
+  //   rows = await res.json();
+
+  //   // show only top 5 for homepage
+  //   topRows = rows.slice(0, 5);
+  // });
 
   onMount(async () => {
-    const res = await fetch('./data/results.json');
-    rows = await res.json();
+    try {
+      const res = await fetch(
+        'https://ctwfyjhvheylawtxrvdq.supabase.co/functions/v1/get-leaderboard',
+        {
+          headers: {
+            Authorization: `Bearer ${SUPABASE_ANON_KEY}`
+          }
+        }
+      );
+      if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+      const json = await res.json();
+      console.log('Leaderboard raw data:', json);
+      rows = json.data ?? [];
+    } catch (err) {
+      console.error('Failed to fetch leaderboard:', err);
+    }
   });
-
-  $: filtered = rows
-    .filter(r =>
-      [r.model, r.team].some(v => (v || '').toLowerCase().includes(q.toLowerCase()))
-    )
-    .sort((a, b) => (b.val_f1 ?? 0) - (a.val_f1 ?? 0));
 </script>
 
-<main class="leaderboard">
-  <h1 class="h1">GENEA Leaderboard</h1>
-  <input placeholder="Search..." bind:value={q} />
+<section class="home">
+  <h2>What is GENEA</h2>
+  <p style="font-size: 2em; padding-bottom:30px">
+    Welcome to the GENEA Leaderboard project! This project is ...
+  </p>
 
-  <table>
-    <thead>
-      <tr>
-        <th>#</th><th>Model</th><th>Team</th><th>Val F1</th><th>Val MSE</th><th>Submitted</th>
-      </tr>
-    </thead>
-    <tbody>
-      {#each filtered as r, i}
-      <tr>
-        <td class="rank">{i + 1}</td>
-        <td class="model">{r.model}</td>
-        <td class="team">{r.team}</td>
-        <td class="score">{r.val_f1}</td>
-        <td class="score">{r.val_mse}</td>
-        <td class="date">{r.submitted}</td>
-      </tr>
-      {/each}
-    </tbody>
-  </table>
-</main>
+  <main class="leaderboard">
+    <h2>Leaderboard</h2>
+    <LeaderboardTable rows={rows} columns={columnsToShow} />
+    <p><a href="/leaderboard">See full leaderboard →</a></p>
+  </main>
+  <!-- <ul>
+    {#each rows as row}
+      <li>{row.model} ({row.team}) - {row.val_f1}</li>
+    {/each}
+  </ul> -->
+</section>

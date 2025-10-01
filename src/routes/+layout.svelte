@@ -1,6 +1,6 @@
 <nav class="navbar">
-  <button class="nav-item">Home</button>
-  <button class="nav-item">Leaderboard</button>
+  <a class="nav-item" href="{resolve('/')}">Home</a>
+  <a class="nav-item" href="{resolve('/leaderboard')}">Leaderboard</a>
   <div class="nav-item dropdown">
     <button class="dropbtn">Datasets ▼</button>
     <div class="dropdown-content">
@@ -17,12 +17,12 @@
       <a href="https://github.com/TeoNikolov/genea_visualizer/tree/dev-2025" target="_blank">Blender</a>
     </div>
   </div>
-  <button class="nav-item">Submit</button>
+  <a class="nav-item" href="{resolve('/submit')}">Submit</a>
 </nav>
 
 <script lang="ts">
   import '../app.css';
-  import {resolve} from '$app/paths';
+  import { resolve } from '$app/paths';
   import favicon from '$lib/assets/favicon.svg';
 
   let { children } = $props();
