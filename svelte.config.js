@@ -18,7 +18,7 @@ const config = {
 			assets: 'build',
 			fallback: undefined,
 			precompress: false,
-			strict: true
+			strict: false
 		}),
 		paths: {
 			base: isDev ? '' : '/GENEA_Leaderboard_webpage'
