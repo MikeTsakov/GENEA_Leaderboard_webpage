@@ -28,7 +28,12 @@
   });
 </script>
 
-<main class="leaderboard">
-  <h2>Leaderboard</h2>
-  <LeaderboardTable rows={rows} />
+
+<main class="subcontainer">
+  <div class="leaderboard-table card">
+    <h2 class="h2">Leaderboard</h2>
+    <div class="leaderboard-wrapper">
+      <LeaderboardTable rows={rows} />
+    </div>
+  </div>
 </main>

@@ -44,17 +44,39 @@
   }
 </script>
 
-<form on:submit={submitForm}>
-  <label>Team <input name="team" bind:value={team} /></label>
-  <label>Model <input name="model" bind:value={model} /></label>
-  <label>PDF <input type="file" name="file" accept="application/pdf" on:change={onFile} /></label>
-
-  <button type="submit" disabled={loading}>
-    {#if loading}Submitting...{/if}
-    {#if !loading}Submit{/if}
-  </button>
-</form>
-
 {#if message}
   <p class="feedback">{message}</p>
 {/if}
+
+<main class="subcontainer">
+  <div class="home-split">
+    <!-- Left column: Text content -->
+    <div class="home-text card">
+      <h1 class="h1">What is GENEA?</h1>
+      <p class="lead">
+        Welcome to the <strong>GENEA Leaderboard</strong> project!  
+        This platform provides a unified evaluation hub for gesture generation and animation research.
+        Here you can explore state-of-the-art models, compare team results, and discover available datasets
+        to help you get started.
+      </p>
+      <p>
+        Whether you're a researcher or a developer, our mission is to make gesture evaluation
+        more open, transparent, and comparable across projects.
+      </p>
+    </div>
+
+    <!-- Right column: Mini leaderboard -->
+    <div class="leaderboard-preview card">
+      <form on:submit={submitForm}>
+        <label>Team <input name="team" bind:value={team} /></label>
+        <label>Model <input name="model" bind:value={model} /></label>
+        <label>PDF <input type="file" name="file" accept="application/pdf" on:change={onFile} /></label>
+
+        <button type="submit" disabled={loading}>
+          {#if loading}Submitting...{/if}
+          {#if !loading}Submit{/if}
+        </button>
+      </form>
+    </div>
+  </div>
+</main>
