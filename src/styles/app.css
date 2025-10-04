@@ -1,25 +1,19 @@
-/* styles/new/app.css
-   - Toggle dark mode by adding/removing the `dark` class on <body>
-   - Example: <body class="dark"> ... </body>
-*/
-
 /* ---------- Theme variables ---------- */
 /* Light mode defaults */
 :root {
-  --bg: #ffffff;                 /* page background */
-  --page-bg: #f7f8fb;            /* content area background (subtle) */
-  --nav-bg: #f9f9f9;             /* navbar background */
-  --nav-max-width: 1400px;             /* navbar background */
-  --nav-contrast: #23262f;       /* navbar inner color for buttons in light theme */
-  --primary: #00aaff;            /* accent */
-  --muted: #6b7280;              /* muted text */
-  --text: #0f1724;               /* primary text, dark */
-  --table-bg: #ffffff;           /* table card background */
-  --table-outline: #e6e9ef;      /* thin outline around leaderboard */
+  --bg: #ffffff;
+  --page-bg: #f7f8fb;
+  --nav-bg: #f9f9f9;
+  --nav-max-width: 1400px;
+  --nav-contrast: #23262f;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --table-bg: #ffffff;
+  --table-outline: #e6e9ef;
   --row-odd: #ffffff;
   --row-even: #f3f5f9;
-  --row-hover: #e8f7ff;          /* hover color */
-  --score-color: #00c77a;        /* bright score color */
+  --row-hover: #e8f7ff;
+  --score-color: #00c77a;
   --shadow: 0 6px 20px rgba(15, 23, 36, 0.08);
   --thin-line: #e6e9ef;
   --btn-bg: #e5e7eb;
@@ -30,19 +24,17 @@
   --line: #d1d5db;
   --accent: #00aaff;
 }
-
 /* Dark theme overrides */
 body.dark,
 .dark {
-  --bg: #121214;                /* very dark almost black */
-  --page-bg: #0b0b0d;           /* slightly lighter content area */
-  --nav-bg: #111;           /* navbar dark */
-  --nav-contrast: #1f2126;      /* button background in nav */
-  --primary: #00aaff;
+  --bg: #121214;
+  --page-bg: #0b0b0d;
+  --nav-bg: #111;
+  --nav-contrast: #1f2126;
   --muted: #9aa3b2;
-  --text: #e6eef8;              /* light text */
+  --text: #e6eef8;
   --table-bg: #0b0b0d;
-  --table-outline: rgba(255,255,255,0.04);
+  --table-outline: #535353;
   --row-odd: #0b0b0d;
   --row-even: #0f1113;
   --row-hover: rgba(0,170,255,0.06);
@@ -53,8 +45,8 @@ body.dark,
   --btn-text: #fff;
   --btn-hover-bg: #00aaff;
   --btn-hover-text: #fff;
-  --dropdown-bg: #2a2d3a;
-  --line: #333;
+  --dropdown-bg: #121214;
+  --line: #535353;
   --accent: #00aaff;
 }
 
@@ -445,7 +437,7 @@ html, body {
   padding: 10px 16px;
   border-radius: 8px;
   border: none;
-  background: var(--primary);
+  background: var(--accent);
   color: #ffffff;
   font-weight: 700;
   cursor: pointer;
