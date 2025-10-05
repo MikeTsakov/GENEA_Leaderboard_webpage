@@ -5,11 +5,12 @@
   --page-bg: #f7f8fb;
   --nav-bg: #f9f9f9;
   --nav-max-width: 1400px;
-  --nav-contrast: #23262f;
+  --nav-contrast: #343946;
   --muted: #6b7280;
-  --text: #0f1724;
+  --text: #090e16;
   --table-bg: #ffffff;
   --table-outline: #e6e9ef;
+  --table-header-background: #ffffff;
   --row-odd: #ffffff;
   --row-even: #f3f5f9;
   --row-hover: #e8f7ff;
@@ -29,7 +30,7 @@ body.dark,
 .dark {
   --bg: #121214;
   --page-bg: #0b0b0d;
-  --nav-bg: #111;
+  --nav-bg: #1b1b1b;
   --nav-contrast: #1f2126;
   --muted: #9aa3b2;
   --text: #e6eef8;
@@ -66,12 +67,12 @@ html, body {
 /* Main section container */
 .container {
   display: flex;
-  padding-top: 4rem; /* space below navbar */
+  padding-top: 3rem;
   justify-content: center;
   position: sticky;
 }
 
-/* Main section container */
+/* Sub section container */
 .subcontainer {
   display: flex;
   max-width: var(--nav-max-width);
@@ -203,11 +204,11 @@ html, body {
 
 
 /* ---------- Page sections ---------- */
-/* Shared card used for the main content blocks (leaderboard card, about card etc.) */
 .card {
   background: var(--table-bg);
   box-shadow: var(--shadow);
   border: 1px solid var(--table-outline);
+  min-width: 100%;
 }
 
 /* Top page title / hero */
@@ -229,10 +230,10 @@ html, body {
 /* ---------- Home page layout (two columns) ---------- */
 .home-split {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 50% / 50% split */
+  grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
-  width: 100%; /* make the content area wider but not edge-to-edge */
-  max-width: var(--nav-max-width); /* keep it centered on big screens */
+  width: 100%;
+  max-width: var(--nav-max-width);
 }
 
 /* Left text block */
@@ -242,7 +243,6 @@ html, body {
   box-sizing: border-box;
   padding: 2rem;
   border-radius: 1rem;
-  background-color: var(--card-bg);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
@@ -264,14 +264,6 @@ html, body {
   color: var(--muted);
 }
 
-/* Leaderboard column */
-.leaderboard-preview {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-}
-
 /* Small link at the bottom */
 .see-full {
   align-self: flex-end;
@@ -284,13 +276,11 @@ html, body {
 
 /* ---------- Leaderboard styles (shared across pages) ---------- */
 .leaderboard-table {
-  width: 100%;
   border-collapse: collapse;
-  min-width: var(--nav-max-width);
+  width: var(--nav-max-width);
   box-sizing: border-box;
   padding: 2rem;
   border-radius: 1rem;
-  background-color: var(--card-bg);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
@@ -321,7 +311,6 @@ html, body {
   background: var(--row-even);
 }
 
-/* Hover should override alternating - place AFTER */
 .leaderboard-table tbody tr:hover {
   background: var(--row-hover);
 }
@@ -351,11 +340,43 @@ html, body {
   font-weight: 700;
 }
 
+.leaderboard-table-search {
+  padding: 12px;
+  width: 20%;
+}
+
+.leaderboard-search {
+  padding: 12px;
+  width: 100%;
+}
+
+.leaderboard-table-inner {
+  width: 100%;
+}
+
+.leaderboard-header {
+  background-color: var(--table-header-background);
+}
+
+.leaderboard-header-text {
+  color: var(--table-header-background);
+  visibility: visible;
+}
+
 /* Table outer thin border */
 .leaderboard-wrapper {
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--table-outline);
+}
+
+/* Leaderboard column */
+.leaderboard-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 50%;
 }
 
 /* Responsive table container */
@@ -366,14 +387,11 @@ html, body {
 
 /* ---------- Sort arrow reserved slot ---------- */
 .sort-arrow {
+  width: 7em;
   display: inline-block;
-  width: 5em;            /* reserve a fixed slot for arrow so header doesn't jump */
   text-align: center;
   margin-left: 6px;
   font-size: 0.9em;
-  color: var(--muted);
-  /* hide arrow for inactive but preserve space */
-  visibility: visible;
 }
 
 .sort-inactive {
@@ -466,7 +484,7 @@ html, body {
   .home-split { grid-template-columns: 1fr; }
   .submit-split { grid-template-columns: 1fr; }
   .navbar { padding: 12px; }
-  .nav-center { display: none; } /* collapse center nav, optionally implement a hamburger later */
+  .nav-center { display: none; }
 }
 
 @media (max-width: 760px) {
@@ -481,5 +499,3 @@ html, body {
   outline: 3px solid rgba(0,170,255,0.14);
   outline-offset: 2px;
 }
-
-/* ---------- End of file ---------- */

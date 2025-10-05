@@ -9,6 +9,7 @@
   let sortKey: keyof LeaderboardRow | null = null;
   let ascending = true;
   let q = '';
+  export let showSearch: boolean = true;
 
   function sortBy(key: keyof LeaderboardRow) {
     if (sortKey === key) {
@@ -44,14 +45,18 @@
   $: displayedRows = limit ? sortedRows.slice(0, limit) : sortedRows;
 </script>
 
-<input placeholder="Search..." bind:value={q} />
-<table>
+{#if showSearch}
+    <div class="leaderboard-table-search">
+        <input class="leaderboard-search" placeholder="Search..." bind:value={q} />
+    </div>
+{/if}
+<table class="leaderboard-table-inner">
 <thead>
     <tr>
         {#each columns as col}
-        <th on:click={() => sortBy(col)}>
+        <th class="leaderboard-header" on:click={() => sortBy(col)}>
           <span class="sort-arrow">
-            <text class="tableheader">{col.charAt(0).toUpperCase() + col.slice(1)}</text> {sortKey === col ? (ascending ? '▲' : '▼') : '-'}
+            <text class="leaderboard-header-text">{col.charAt(0).toUpperCase() + col.slice(1)}</text> {sortKey === col ? (ascending ? '▲' : '▼') : '-'}
           </span>
         </th>
       {/each}

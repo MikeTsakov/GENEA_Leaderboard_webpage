@@ -47,10 +47,10 @@
     </div>
 
     <!-- Right column: Mini leaderboard -->
-    <div class="leaderboard-preview card">
+    <div class="leaderboard-table leaderboard-preview card">
       <h2 class="h2">Top 10 Leaderboard</h2>
       <div class="leaderboard-wrapper">
-        <LeaderboardTable rows={rows.slice(0, 10)} columns={columnsToShow} />
+        <LeaderboardTable rows={rows.slice(0, 10)} columns={columnsToShow} showSearch={false} />
       </div>
       <a class="see-full" on:click={goToLeaderboard}>
         See full leaderboard →

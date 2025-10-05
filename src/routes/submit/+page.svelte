@@ -50,7 +50,6 @@
 
 <main class="subcontainer">
   <div class="home-split">
-    <!-- Left column: Text content -->
     <div class="home-text card">
       <h1 class="h1">What is GENEA?</h1>
       <p class="lead">
@@ -65,18 +64,10 @@
       </p>
     </div>
 
-    <!-- Right column: Mini leaderboard -->
     <div class="leaderboard-preview card">
-      <form on:submit={submitForm}>
-        <label>Team <input name="team" bind:value={team} /></label>
-        <label>Model <input name="model" bind:value={model} /></label>
-        <label>PDF <input type="file" name="file" accept="application/pdf" on:change={onFile} /></label>
-
-        <button type="submit" disabled={loading}>
-          {#if loading}Submitting...{/if}
-          {#if !loading}Submit{/if}
-        </button>
-      </form>
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLScwTIR43liXvuN0oF0OB0muLLjBa8t04UwuEJHj1XN8fykmtw/viewform?embedded=true" width="600" height="1050" frameborder="0" marginheight="0" marginwidth="0">Loading…
+      </iframe>
     </div>
   </div>
 </main>
