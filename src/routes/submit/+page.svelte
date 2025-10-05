@@ -48,7 +48,7 @@
   <p class="feedback">{message}</p>
 {/if}
 
-<main class="subcontainer" style= "padding: 15px">
+<main class="subcontainer" style= "padding: 21px">
   <div class="home-split">
     <div class="home-text card">
       <h1 class="h1">What is GENEA?</h1>
