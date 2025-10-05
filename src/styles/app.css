@@ -54,7 +54,7 @@ body.dark,
 }
 
 /* ---------- Global resets / basics ---------- */
-* { box-sizing: border-box; }
+/* * { box-sizing: border-box; } */
 html, body {
   height: 100%;
   margin: 0;
@@ -69,7 +69,7 @@ html, body {
 /* Main section container */
 .container {
   display: flex;
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
   justify-content: center;
   position: sticky;
 }
@@ -78,6 +78,10 @@ html, body {
 .subcontainer {
   display: flex;
   max-width: var(--nav-max-width);
+  margin: 0 auto;
+  height: calc(100vh - var(--nav-height, 80px));
+  align-items: center;
+  justify-content: center;
 }
 
 /* ========== NAVBAR ========== */
@@ -96,26 +100,39 @@ html, body {
   width: 100%;
   max-width: var(--nav-max-width);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  position: relative;
   padding: 0.4rem 1rem;
   background: var(--nav-bg);
 }
 
-.nav-left,
-.nav-center,
-.nav-right {
+.nav-center {
   display: flex;
   align-items: center;
   gap: 1.25rem;
 }
 
+.nav-left,
+.nav-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-left {
+  left: 1rem;
+}
+
+.nav-right {
+  right: 1rem;
+}
+
 /* Logo placeholder */
 .site-logo {
-  width: 32px;
+  width: 128px;
   height: 32px;
-  background: var(--accent);
-  border-radius: 50%;
+  background: url('/logo.png') center center / contain no-repeat;
 }
 
 /* Navigation links */
@@ -508,4 +525,5 @@ iframe {
   height: 1050px;
   border: 0;
   margin: 0;
+  transition: filter 0.25s ease;
 }

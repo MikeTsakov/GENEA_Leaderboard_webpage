@@ -5,7 +5,6 @@
 
   let { children } = $props();
 
-  // simple dark mode persistence
   if (typeof window !== 'undefined') {
     const saved = localStorage.getItem('theme');
     if (saved === 'dark') document.body.classList.add('dark');
@@ -24,20 +23,16 @@
   <link rel="icon" href={favicon} />
 </svelte:head>
 
-<!-- NAVBAR -->
 <div class="navbar-wrap">
   <nav class="navbar">
-    <!-- Left: logo / title (optional) -->
     <div class="nav-left">
       <div class="site-logo"></div>
     </div>
 
-    <!-- Center: navigation links -->
     <div class="nav-center">
       <a class="nav-link" href="{resolve('/')}">Home</a>
       <a class="nav-link" href="{resolve('/leaderboard')}">Leaderboard</a>
 
-      <!-- Datasets dropdown -->
       <div class="dropdown">
         <button class="dropbtn">Datasets ▼</button>
         <div class="dropdown-content">
@@ -47,7 +42,6 @@
         </div>
       </div>
 
-      <!-- Visualizers dropdown -->
       <div class="dropdown">
         <button class="dropbtn">Visualizers ▼</button>
         <div class="dropdown-content">
@@ -59,16 +53,15 @@
       <a class="nav-link" href="{resolve('/submit')}">Submit</a>
     </div>
 
-    <!-- Right: theme toggle -->
     <div class="nav-right">
       <button class="theme-toggle" on:click={toggleTheme}>
         🌙 / ☀️
       </button>
     </div>
+
   </nav>
 </div>
 
-<!-- PAGE CONTENT -->
 <main class="container">
   {@render children?.()}
 </main>
