@@ -66,7 +66,7 @@
 
     <div class="leaderboard-preview card">
       <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLScwTIR43liXvuN0oF0OB0muLLjBa8t04UwuEJHj1XN8fykmtw/viewform?embedded=true" width="600" height="1050" frameborder="0" marginheight="0" marginwidth="0">Loading…
+        src="https://docs.google.com/forms/d/e/1FAIpQLScwTIR43liXvuN0oF0OB0muLLjBa8t04UwuEJHj1XN8fykmtw/viewform?embedded=true">Loading…
       </iframe>
     </div>
   </div>
