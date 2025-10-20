@@ -1,0 +1,13 @@
+import"../chunks/DsnmJJEf.js";import"../chunks/CPZQZoyh.js";import{o as n}from"../chunks/BYoQ2sOk.js";import{p as l,f as d,a as p,b as c}from"../chunks/LzyBKcRL.js";import{i as h}from"../chunks/Cpw0NejY.js";import{P as m}from"../chunks/E_zRzjLp.js";var u=d(`<main class="subcontainer"><div class="home-split-ver"><div class="home-text card"><h1 class="h1">Talking With Hands</h1> <p class="lead">Welcome to the <strong>GENEA Leaderboard</strong> project!  
+        This platform provides a unified evaluation hub for gesture generation and animation research.
+        Here you can explore state-of-the-art models, compare team results, and discover available datasets
+        to help you get started.</p> <a href="https://github.com/facebookresearch/TalkingWithHands32M" target="_blank" class="links">Talking with Hands</a> <p>Whether you're a researcher or a developer, our mission is to make gesture evaluation
+        more open, transparent, and comparable across projects.</p></div> <div class="home-text card"><h1 class="h1">SMPL-X</h1> <p class="lead">Welcome to the <strong>GENEA Leaderboard</strong> project!  
+        This platform provides a unified evaluation hub for gesture generation and animation research.
+        Here you can explore state-of-the-art models, compare team results, and discover available datasets
+        to help you get started.</p> <a href="https://smpl-x.is.tue.mpg.de/index.html" target="_blank" class="links">SMPL-X</a> <p>Whether you're a researcher or a developer, our mission is to make gesture evaluation
+        more open, transparent, and comparable across projects.</p></div> <div class="home-text card"><h1 class="h1">Nymeria</h1> <p class="lead">Welcome to the <strong>GENEA Leaderboard</strong> project!  
+        This platform provides a unified evaluation hub for gesture generation and animation research.
+        Here you can explore state-of-the-art models, compare team results, and discover available datasets
+        to help you get started.</p> <a href="https://www.projectaria.com/datasets/nymeria/" target="_blank" class="links">Nymeria</a> <p>Whether you're a researcher or a developer, our mission is to make gesture evaluation
+        more open, transparent, and comparable across projects.</p></div></div></main>`);function w(t,o){l(o,!1);let s=[];n(async()=>{try{const e=await fetch("https://ctwfyjhvheylawtxrvdq.supabase.co/functions/v1/get-leaderboard",{headers:{Authorization:`Bearer ${m}`}});if(!e.ok)throw new Error(`HTTP error ${e.status}`);const a=await e.json();console.log("Leaderboard raw data:",a),s=(a.data??[]).map(r=>({...r,submitted:new Date(r.submitted).toLocaleString()}))}catch(e){console.error("Failed to fetch leaderboard:",e)}}),h();var i=u();p(t,i),c()}export{w as component};
