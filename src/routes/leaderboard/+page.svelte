@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { resolve } from '$app/paths';
   import LeaderboardTable from '$lib/components/LeaderboardTable.svelte';
   import { PUBLIC_SUPABASE_ANON_KEY, type LeaderboardRow } from '$lib/types';
 
@@ -39,10 +40,12 @@
 
   <div class="image-gallery card">
     <img
-      src="/motion_realism_elo_results.jpg"
+      src="{resolve('/motion_realism_elo_results.jpg' as any)}"
+      alt="Motion realism results"
     >
     <img
-      src="/mismatching_pref_results_split_ties.jpg"
+      src="{resolve('/mismatching_pref_results_split_ties.jpg' as any)}"
+      alt="Mismatching preference results"
     >
   </div>
 </div>

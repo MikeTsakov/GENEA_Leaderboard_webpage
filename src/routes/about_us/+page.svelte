@@ -20,7 +20,6 @@
       console.log('Leaderboard raw data:', json);
       rows = (json.data ?? []).map((row: LeaderboardRow) => ({
         ...row,
-        submitted: new Date(row.submitted).toLocaleString(),
       }));
     } catch (err) {
       console.error('Failed to fetch leaderboard:', err);
