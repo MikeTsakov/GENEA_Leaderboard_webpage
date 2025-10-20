@@ -4,7 +4,7 @@
   export let rows: LeaderboardRow[] = [];
   export let limit: number | null = null;
   export let columns: (keyof LeaderboardRow)[] = [
-    'id', 'team', 'model', 'val_f1', 'val_mse', 'submitted'
+    'rank', 'name', 'fgd', 'fd_g', 'fd_k', 'ba', 'srgr', 'div_pose', 'div_sample', 'paper_venue', 'elo_hl', 'mismatch'
   ];
   let sortKey: keyof LeaderboardRow | null = null;
   let ascending = true;
@@ -22,7 +22,7 @@
 
   $: sortedRows = [...rows]
   .filter(r =>
-      [r.team, r.model].some(v => (v || '').toLowerCase().includes(q.toLowerCase()))
+      [r.name].some(v => (v || '').toLowerCase().includes(q.toLowerCase()))
     )
   .sort((a, b) => {
     if (!sortKey) return 0;
@@ -54,7 +54,7 @@
 <thead>
     <tr>
         {#each columns as col}
-        <th class="leaderboard-header" on:click={() => sortBy(col)}>
+        <th class="" on:click={() => sortBy(col)}>
           <span class="sort-arrow">
             <text class="leaderboard-header-text">{col.charAt(0).toUpperCase() + col.slice(1)}</text> {sortKey === col ? (ascending ? '▲' : '▼') : '-'}
           </span>

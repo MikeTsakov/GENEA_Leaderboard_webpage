@@ -1,10 +1,26 @@
+// export interface LeaderboardRow {
+//   id?: number;
+//   team: string;
+//   model: string;
+//   val_f1?: number;
+//   val_mse?: number;
+//   submitted?: string;
+// }
+
 export interface LeaderboardRow {
   id?: number;
-  team: string;
-  model: string;
-  val_f1?: number;
-  val_mse?: number;
-  submitted?: string;
+  rank: number;
+  name: string;
+  fgd?: number;
+  fd_g?: number;
+  fd_k?: number;
+  ba?: number;
+  srgr?: number;
+  div_pose?: number;
+  div_sample?: number;
+  paper_venue: string;
+  elo_hl?: number;
+  mismatch?: number;
 }
 
 export const PUBLIC_SUPABASE_URL = "https://ctwfyjhvheylawtxrvdq.supabase.co";

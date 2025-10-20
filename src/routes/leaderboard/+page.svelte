@@ -19,8 +19,7 @@
       const json = await res.json();
       console.log('Leaderboard raw data:', json);
       rows = (json.data ?? []).map((row: LeaderboardRow) => ({
-        ...row,
-        submitted: new Date(row.submitted).toLocaleString(),
+        ...row
       }));
     } catch (err) {
       console.error('Failed to fetch leaderboard:', err);
@@ -30,10 +29,21 @@
 
 
 <main class="subcontainer">
+  <div class="home-split-ver">
   <div class="leaderboard-table card">
     <h2 class="h2">Leaderboard</h2>
     <div class="leaderboard-wrapper">
       <LeaderboardTable rows={rows} />
     </div>
   </div>
+
+  <div class="image-gallery card">
+    <img
+      src="/motion_realism_elo_results.jpg"
+    >
+    <img
+      src="/mismatching_pref_results_split_ties.jpg"
+    >
+  </div>
+</div>
 </main>

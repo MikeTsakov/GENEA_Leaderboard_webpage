@@ -6,7 +6,7 @@
   import { PUBLIC_SUPABASE_ANON_KEY, type LeaderboardRow } from '$lib/types';
 
   let rows: LeaderboardRow[] = [];
-  const columnsToShow: (keyof LeaderboardRow)[] = ['id', 'model', 'team', 'val_f1'];
+  const columnsToShow: (keyof LeaderboardRow)[] = ['rank', 'name', 'paper_venue', 'elo_hl', 'fgd'];
 
   onMount(async () => {
     try {
@@ -30,9 +30,9 @@
 </script>
 
 <main class="subcontainer">
-  <div class="home-split">
+  <div class="home-split-hor">
     <!-- Left column: Text content -->
-    <div class="home-text card">
+    <div class="home-text home-text-extra card">
       <h1 class="h1">What is GENEA?</h1>
       <p class="lead">
         Welcome to the <strong>GENEA Leaderboard</strong> project!  

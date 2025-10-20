@@ -6,7 +6,7 @@
   --nav-bg: #f9f9f9;
   --nav-max-width: 1400px;
   --nav-contrast: #343946;
-  --muted: #6b7280;
+  --muted: #595f6b;
   --text: #090e16;
   --table-bg: #ffffff;
   --table-outline: #e6e9ef;
@@ -32,11 +32,12 @@ body.dark,
   --bg: #121214;
   --page-bg: #0b0b0d;
   --nav-bg: #1b1b1b;
-  --nav-contrast: #1f2126;
+  --nav-contrast: #aeb0b9;
   --muted: #9aa3b2;
   --text: #e6eef8;
   --table-bg: #0b0b0d;
   --table-outline: #535353;
+  --table-header-background: #0b0b0d;
   --row-odd: #0b0b0d;
   --row-even: #0f1113;
   --row-hover: rgba(0,170,255,0.06);
@@ -128,7 +129,15 @@ html, body {
   right: 1rem;
 }
 
-/* Logo placeholder */
+.site-logo-link {
+  cursor: pointer;
+}
+
+.site-logo-link:focus {
+  outline: 3px solid rgba(0,170,255,0.3);
+  outline-offset: 2px;
+}
+
 .site-logo {
   width: 128px;
   height: 32px;
@@ -155,6 +164,20 @@ html, body {
 .dropbtn:hover {
   background: var(--btn-hover-bg);
   color: var(--btn-hover-text);
+}
+
+.nav-link-home {
+  padding: 0px 60px;
+}
+
+.nav-link-extra {
+  background-color: #3284ff;
+  color: #ffffff;
+}
+
+.links {
+  font-weight: bold;
+  font-size: larger;
 }
 
 /* Dropdown container */
@@ -227,6 +250,11 @@ html, body {
   background: var(--table-bg);
   box-shadow: var(--shadow);
   border: 1px solid var(--table-outline);
+
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
   min-width: 100%;
 }
 
@@ -247,12 +275,23 @@ html, body {
 }
 
 /* ---------- Home page layout (two columns) ---------- */
-.home-split {
+.home-split-hor {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
-  width: 100%;
-  max-width: var(--nav-max-width);
+  justify-items: center;
+  /* width: 100%; */
+  /* max-width: var(--nav-max-width); */
+}
+
+.home-split-ver {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: stretch;
+  /* padding-top: 25rem; */
+  /* width: 100%; */
+  /* max-width: var(--nav-max-width); */
 }
 
 /* Left text block */
@@ -263,6 +302,9 @@ html, body {
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.home-text-extra {
   min-height: 665px;
 }
 
@@ -270,7 +312,7 @@ html, body {
   position: sticky;
   top: 0;
   z-index: 30;
-  background: var(--nav-contrast);
+  background: var(--table-header-background);
   color: var(--muted);
   font-weight: 700;
   font-size: 14px;
@@ -285,13 +327,13 @@ html, body {
 }
 
 /* Alternate row colors */
-.leaderboard-preview tbody tr:nth-child(odd) {
+/* .leaderboard-preview tbody tr:nth-child(odd) {
   background: var(--row-odd);
 }
 
 .leaderboard-preview tbody tr:nth-child(even) {
   background: var(--row-even);
-}
+} */
 
 .leaderboard-preview tbody tr:hover {
   background: var(--row-hover);
@@ -358,14 +400,14 @@ html, body {
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  min-height: 1075px;
+  /* min-height: 1075px; */
 }
 
 .leaderboard-table thead th {
   position: sticky;
   top: 0;
   z-index: 30;
-  background: var(--nav-contrast);
+  background: var(--table-header-background);
   color: var(--muted);
   font-weight: 700;
   font-size: 14px;
@@ -380,13 +422,13 @@ html, body {
 }
 
 /* Alternate row colors */
-.leaderboard-table tbody tr:nth-child(odd) {
+/* .leaderboard-table tbody tr:nth-child(odd) {
   background: var(--row-odd);
 }
 
 .leaderboard-table tbody tr:nth-child(even) {
   background: var(--row-even);
-}
+} */
 
 .leaderboard-table tbody tr:hover {
   background: var(--row-hover);
@@ -431,12 +473,8 @@ html, body {
   width: 100%;
 }
 
-.leaderboard-header {
-  background-color: var(--table-header-background);
-}
-
 .leaderboard-header-text {
-  color: var(--table-header-background);
+  color: var(--nav-contrast);
   visibility: visible;
 }
 
@@ -547,6 +585,7 @@ html, body {
 .h1 { font-size: 28px; font-weight: 700; color: var(--text); margin: 0 0 8px 0; }
 .h2 { font-size: 20px; font-weight: 700; color: var(--text); margin: 0 0 8px 0; }
 .lead { color: var(--muted); font-size: 15px; }
+.bulleted { color: var(--muted); font-size: 15px; }
 
 /* ---------- Footer ---------- */
 .site-footer {
@@ -584,4 +623,19 @@ iframe {
   border: 0;
   margin: 0;
   transition: filter 0.25s ease;
+}
+
+.image-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.image-gallery img {
+  /* width: 100%; */
+  max-width: 1200px;
+  /* height: auto; */
+  /* border-radius: 8px; */
+  /* box-shadow: 0 4px 12px rgba(0,0,0,0.2); */
 }

@@ -26,14 +26,20 @@
 <div class="navbar-wrap">
   <nav class="navbar">
     <div class="nav-left">
-      <div class="site-logo"></div>
+      <a href="{resolve('/')}" class="site-logo-link">
+        <div class="site-logo"></div>
+      </a>
     </div>
 
     <div class="nav-center">
-      <a class="nav-link" href="{resolve('/')}">Home</a>
       <a class="nav-link" href="{resolve('/leaderboard')}">Leaderboard</a>
+      <a class="nav-link" href="{resolve('/datasets')}">Datasets</a>
+      <a class="nav-link" href="{resolve('/tools')}">Tools</a>
+      <a class="nav-link" href="{resolve('/rules')}">Rules</a>
+      <a class="nav-link nav-link-extra" href="{resolve('/submit')}">Submit</a>
+      <a class="nav-link" href="{resolve('/about_us')}">About Us</a>
 
-      <div class="dropdown">
+      <!-- <div class="dropdown">
         <button class="dropbtn">Datasets ▼</button>
         <div class="dropdown-content">
           <a href="https://github.com/facebookresearch/TalkingWithHands32M" target="_blank">Talking with Hands</a>
@@ -50,7 +56,7 @@
         </div>
       </div>
 
-      <a class="nav-link" href="{resolve('/submit')}">Submit</a>
+      <a class="nav-link" href="{resolve('/submit')}">Submit</a> -->
     </div>
 
     <div class="nav-right">
