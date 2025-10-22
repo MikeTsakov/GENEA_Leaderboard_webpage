@@ -5,7 +5,7 @@
   padding-bottom: 2rem;
   justify-content: center;
   position: static;
-  overflow-y: auto;
+  overflow-y: visible;
   background: var(--bg);
 }
 
