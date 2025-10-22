@@ -6,6 +6,7 @@
   justify-content: center;
   position: static;
   overflow-y: auto;
+  background: var(--bg);
 }
 
 /* Sub section container */
