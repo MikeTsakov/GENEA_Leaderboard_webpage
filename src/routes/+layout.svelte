@@ -33,7 +33,7 @@
 
     <div class="nav-center">
       <a class="nav-link" href="{resolve('/leaderboard')}">Leaderboard</a>
-      <a class="nav-link" href="{resolve('/datasets')}">Datasets</a>
+      <a class="nav-link" href="{resolve('/blogs')}">Blog</a>
       <a class="nav-link" href="{resolve('/tools')}">Tools</a>
       <a class="nav-link" href="{resolve('/rules')}">Rules</a>
       <a class="nav-link nav-link-extra" href="{resolve('/submit')}">Submit</a>
@@ -59,7 +59,35 @@
       <a class="nav-link" href="{resolve('/submit')}">Submit</a> -->
     </div>
 
-    <div class="nav-right">
+    <div class="nav-right home-split-layout">
+      <a
+        href="https://github.com/genea-workshop"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="github-link"
+        aria-label="GitHub repository"
+      >
+        <img
+          src="{resolve('/github-mark.svg' as any)}"
+          alt="GitHub"
+          class="github-icon"
+        />
+      </a>
+
+      <a
+        href="https://twitter.com/genea_workshop"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="github-link"
+        aria-label="GitHub repository"
+      >
+        <img
+          src="{resolve('/twitter-logo.svg' as any)}"
+          alt="GitHub"
+          class="github-icon"
+        />
+      </a>
+
       <button class="theme-toggle" on:click={toggleTheme}>
         🌙 / ☀️
       </button>

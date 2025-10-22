@@ -1,38 +1,10 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import LeaderboardTable from '$lib/components/LeaderboardTable.svelte';
-  import { PUBLIC_SUPABASE_ANON_KEY, type LeaderboardRow } from '$lib/types';
-
-  let rows: LeaderboardRow[] = [];
-
-  onMount(async () => {
-    try {
-      const res = await fetch(
-        'https://ctwfyjhvheylawtxrvdq.supabase.co/functions/v1/get-leaderboard',
-        {
-          headers: {
-            Authorization: `Bearer ${PUBLIC_SUPABASE_ANON_KEY}`
-          }
-        }
-      );
-      if (!res.ok) throw new Error(`HTTP error ${res.status}`);
-      const json = await res.json();
-      console.log('Leaderboard raw data:', json);
-      rows = (json.data ?? []).map((row: LeaderboardRow) => ({
-        ...row,
-        submitted: new Date(row.submitted).toLocaleString(),
-      }));
-    } catch (err) {
-      console.error('Failed to fetch leaderboard:', err);
-    }
-  });
 </script>
-
 
 <main class="subcontainer">
   <div class="home-split-ver">
     <div class="home-text card">
-      <h1 class="h1">Talking With Hands</h1>
+      <h1 class="h1">Last blog post goes here</h1>
       <p class="lead">
         Welcome to the <strong>GENEA Leaderboard</strong> project!  
         This platform provides a unified evaluation hub for gesture generation and animation research.
@@ -47,7 +19,7 @@
     </div>
 
     <div class="home-text card">
-      <h1 class="h1">SMPL-X</h1>
+      <h1 class="h1">Second blog post goes here</h1>
       <p class="lead">
         Welcome to the <strong>GENEA Leaderboard</strong> project!  
         This platform provides a unified evaluation hub for gesture generation and animation research.
@@ -62,7 +34,7 @@
     </div>
 
     <div class="home-text card">
-      <h1 class="h1">Nymeria</h1>
+      <h1 class="h1">First blog post goes here</h1>
       <p class="lead">
         Welcome to the <strong>GENEA Leaderboard</strong> project!  
         This platform provides a unified evaluation hub for gesture generation and animation research.

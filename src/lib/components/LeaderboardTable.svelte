@@ -43,6 +43,21 @@
   });
 
   $: displayedRows = limit ? sortedRows.slice(0, limit) : sortedRows;
+
+  const columnInfo: Record<string, { label: string; tooltip: string }> = {
+  rank: { label: '#', tooltip: 'Ranking position' },
+  name: { label: 'Name', tooltip: 'Model or participant name' },
+  fgd: { label: 'FGD', tooltip: 'Frechet Gesture Distance' },
+  fd_g: { label: 'FD-G', tooltip: 'Frechet Distance (Gestures)' },
+  fd_k: { label: 'FD-K', tooltip: 'Frechet Distance (Keypoints)' },
+  ba: { label: 'BA', tooltip: 'Beat Alignment score' },
+  srgr: { label: 'SRGR', tooltip: 'Speech-to-Gesture Relevance' },
+  div_pose: { label: 'Div-P', tooltip: 'Pose Diversity' },
+  div_sample: { label: 'Div-S', tooltip: 'Sample Diversity' },
+  paper_venue: { label: 'Venue', tooltip: 'Publication venue' },
+  elo_hl: { label: 'Elo-HL', tooltip: 'Human-likeness score from Elo rating' },
+  mismatch: { label: 'MM', tooltip: 'Mismatch preference' }
+};
 </script>
 
 {#if showSearch}
@@ -54,7 +69,7 @@
 <thead>
     <tr>
         {#each columns as col}
-        <th class="" on:click={() => sortBy(col)}>
+        <th title={columnInfo[col]?.tooltip} class="" on:click={() => sortBy(col)}>
           <span class="sort-arrow">
             <text class="leaderboard-header-text">{col.charAt(0).toUpperCase() + col.slice(1)}</text> {sortKey === col ? (ascending ? '▲' : '▼') : '-'}
           </span>

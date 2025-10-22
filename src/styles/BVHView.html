@@ -1,20 +1,17 @@
-<!doctype html>
-<html lang="en-us">
-
-<head>
+<!DOCTYPE html>
+<html lang="en-us" class=" vveizj idc0_350"><head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <title>BVHView</title>
 
   <meta name="title" content="BVHView">
   <meta name="description" content="bvh, viewer, animation, developed using raylib videogames library">
-  <meta name="keywords"
-    content="bvh, viewer, animation, raylib, games, html5, programming, C, C++, library, videogames">
+  <meta name="keywords" content="bvh, viewer, animation, raylib, games, html5, programming, C, C++, library, videogames">
   <meta name="viewport" content="width=device-width">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/res/bvhview.ico">
+  <link rel="shortcut icon" href="http://localhost:5173/res/bvhview.ico">
 
   <style>
     :root {
@@ -29,9 +26,8 @@
     }
 
     #header {
-      width: 1600px;
+      width: 1280px;
       height: 80px;
-      align-items: center;
       background-color: rgb(255, 255, 255);
     }
 
@@ -70,22 +66,17 @@
     div.subcontainer {
       display: grid;
       grid-template-columns: var(--left-width, 1fr) var(--right-width, 1fr);
+      /* grid-template-columns: 1fr 1fr; */
+      /* gap: 2.5rem; */
       justify-items: center;
-    }
-
-    div.text {
-      padding-top: 100px;
-      padding-left: 100px;
     }
 
     /* NOTE: Canvas *must not* have any border or padding, or mouse coords will be wrong */
     canvas.emscripten {
       border: 0px none;
       background: black;
-      /* width: 1280px;
-      height: 720px; */
-      width: 1600px;
-      height: 900px;
+      width: 1280px;
+      height: 720px;
     }
 
     .spinner {
@@ -194,7 +185,7 @@
 <body>
   <div class="container">
     <div class="subcontainer">
-      <div class="text">
+      <div style="padding-top: 100px;">
         <p><strong>BVHView Instructions</strong></p>
         <p>How to use with <strong>SMPLX</strong>:</p>
         <ul>
@@ -214,20 +205,20 @@
           <li>Drag-drop .bvh into BVHView. Make sure to use the same SMPL-X mesh as the one in the previous step</li>
         </ul>
       </div>
-      <div>
+      <div style="width: 100%;">
         <div id="header">
-          <a id="logo" href="https://www.raylib.com"></a>
+          <a id="logo" href="https://www.raylib.com/"></a>
 
-          <div class="spinner" id='spinner'></div>
-          <div class="emscripten" id="status">Downloading...</div>
+          <div class="spinner" id="spinner" style="display: none;"></div>
+          <div class="emscripten" id="status"></div>
 
           <div class="emscripten">
-            <progress value="0" max="100" id="progress" hidden=1></progress>
+            <progress value="0" max="100" id="progress" hidden=""></progress>
           </div>
         </div>
 
         <div class="emscripten_border">
-          <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
+          <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1" width="1280" height="720"></canvas>
         </div>
       </div>
     </div>
@@ -235,8 +226,8 @@
 
   <!--<textarea id="output" rows="8"></textarea>-->
 
-  <script type='text/javascript' src="https://cdn.jsdelivr.net/gh/eligrey/FileSaver.js/dist/FileSaver.min.js"> </script>
-  <script type='text/javascript'>
+  <script type="text/javascript" src="BVHView_files/FileSaver.min.js"> </script>
+  <script type="text/javascript">
     function saveFileFromMEMFSToDisk(memoryFSname, localFSname)     // This can be called by C/C++ code
     {
       var isSafari = false; // Not supported, navigator.userAgent access is being restricted
@@ -254,7 +245,7 @@
       saveAs(blob, localFSname);
     }
   </script>
-  <script type='text/javascript'>
+  <script type="text/javascript">
     var statusElement = document.querySelector('#status');
     var progressElement = document.querySelector('#progress');
     var spinnerElement = document.querySelector('#spinner');
@@ -339,7 +330,8 @@
       Module.setStatus = function (text) { if (text) Module.printErr('[post-exception status] ' + text); };
     };
   </script>
-  <script async type="text/javascript" src="bvhview.js"></script>
-</body>
+  <script async="" type="text/javascript" src="BVHView_files/bvhview.js"></script>
 
-</html>
+
+
+</body></html>
